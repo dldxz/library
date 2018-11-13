@@ -1,9 +1,9 @@
 <?php
 include('sqli.php')
-$dbuser = "root";
-$dbpass = "hzb123456";
-$dbname = "library";
-$host = "localhost";
+$dbuser = " ";
+$dbpass = " ";
+$dbname = " ";
+$host = " ";
 
 @error_reporting(0);
 @$con = mysqli_connect($host,$dbuser,$dbpass,$dbname);
