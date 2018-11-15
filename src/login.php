@@ -1,9 +1,6 @@
 <?php
 include('sqli.php')
-$dbuser = " ";
-$dbpass = " ";
-$dbname = " ";
-$host = " ";
+include('mysql_info.php')
 
 @error_reporting(0);
 @$con = mysqli_connect($host,$dbuser,$dbpass,$dbname);
