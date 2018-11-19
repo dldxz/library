@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -6,7 +6,37 @@
 	<link rel="stylesheet" type="text/css" href="student.css">
 </head>
 <body>
-	<div >
+	<div id="sidebar">
+		<p id="username">李琛</p>
+		<div id="info_list">
+			<li class="function">
+				<em>个人借阅历史 </em>
+				<em></em>
+
+			</li>
+		</div>
+
+	</div>
+
+	<div id="lookupBook">
+		<div id="contents">
+			选择查询类别:
+			<select name="type" id="select">
+				<option value="书号">书号</option>
+				<option value="书名">书名</option>
+				<option value="作者">作者</option>
+				<option value="出版社">出版社</option>
+				<option value="类别">类别</option>
+
+			</select>
+
+			输入查询字段:
+			<input type="text" class="text" id="keyword" placeholder="输入查询关键字">
+			<input type="button" id="lookup" value="查询">
+		</div>
+
+		<div id="results"></div>
+	</div>
 
 	
 </body>
