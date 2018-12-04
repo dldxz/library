@@ -1,12 +1,12 @@
 body{
-	background: url(images/background.jpg) no-repeat;
+	background: url(../images/background.jpg) no-repeat;
 	background-size: cover; /*基于容器大小伸缩*/
 	/*背景图垂直、水平均居中*/
 
 }
 
 
-div#interface{
+div#interface{ /*主内容区*/
 	text-align: 		center;
 	margin: 		200px auto;
 	padding: 		20px;

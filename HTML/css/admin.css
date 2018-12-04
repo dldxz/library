@@ -5,7 +5,7 @@ html, body{
 }
 #sidebar{  /*左边栏*/
 	box-sizing: 		border-box;
-	background: 		no-repeat url(images/background.jpg);
+	background: 		no-repeat url(../images/background.jpg);
 	background-size: 	cover;
 	width: 		30%;
 	padding: 		15px;
@@ -22,7 +22,17 @@ html, body{
 	margin-top: 		50%;
 }
 
-#lookupBook{   /*右边栏*/
+#functionlist{
+	text-align: left;
+	margin-left: 35%;
+}
+
+a{  /*链接样式*/
+	color: 		white;
+	font:   		15px arial;
+}
+
+#msgbox{   /*右边栏*/
 	box-sizing: 		border-box;
 	float:  		right;
 	font-size: 		105%;
@@ -33,22 +43,20 @@ html, body{
 
 }
 
-
-#contents{   /*右边框元素*/
-	margin-top: 		5%;
-}
-
-
-#select{ /*下拉框*/
-	padding:		10px 7px;
-	width: 		50px;
-	border:		1px solid #c0c0c0;
-	height:		28px;
+#submit{
+	cursor: 		pointer;
+	width: 		55px;
+	height: 		25px;
 	font:			12px arial;
-	margin:  		10px auto;
-	border-radius:	8px;
-	outline: 		none;
+	color:			white;
+	border:		1px solid #c0c0c0;
+	border-radius: 	8px;
+	background-color: 	#38f;
+	margin:		8px auto;
+	outline:		none;
+
 }
+
 
 
 .text{  /*字段输入框*/
@@ -63,28 +71,17 @@ html, body{
 }
 
 
-#lookup{  /*查询按钮*/
-	cursor: 		pointer;
-	width: 		80px;
-	height: 		30px;
-	font:			12px arial;
-	color:			white;
-	border:		1px solid #c0c0c0;
-	border-radius: 	8px;
-	background-color: 	#38f;
-	margin:		8px auto;
-	outline:		none;
-}
-
-.text #lookup #select{
-	display: 		inline-block;
+div#bookInfo{ /*图书录入*/
+	text-align: right;
+	margin-right: 34%;
 }
 
 
-
-#results{  /*查询结果框*/
-	height: 		80%;
+form{  /*查询结果框*/
+	margin:     10% 10%;
 	text-align: 		center;
 }
 
-input::-webkit-input-placeholder{text-align: center;}
+input::-webkit-input-placeholder{text-align: center}
+a:link { text-decoration: none}
+a:hover {text-decoration: underline; color: green}

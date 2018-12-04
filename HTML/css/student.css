@@ -1,0 +1,100 @@
+html, body{
+	font-size: 		small;
+	margin: 		0;
+	height: 		100%;
+}
+#sidebar{  /*左边栏*/
+	box-sizing: 		border-box;
+	background: 		no-repeat url(../images/background.jpg);
+	background-size: 	cover;
+	width: 		30%;
+	padding: 		15px;
+	font-size: 		105%;
+	float: 		left;
+	height: 		100%;
+	text-align: 		center;
+	color: 		white;
+
+}
+
+#username{  /*用户名字段*/
+	font-size: 		250%;
+	margin-top: 		50%;
+}
+
+#lookupHistory{  /*查询个人历史*/
+	background-color: 	transparent;
+	color: 		white;
+	border: 		none;
+	cursor: 		pointer;
+	font:   		15px arial;
+	overflow: 		hidden;
+	outline:       none;  /*解决点击按钮时出现蓝色边框*/
+}
+
+#lookupBook{   /*右边栏*/
+	box-sizing: 		border-box;
+	float:  		right;
+	font-size: 		105%;
+	width:  		70%;
+	padding: 		15px;
+	text-align: 		center;
+	height: 		100%;
+
+}
+
+
+#contents{   /*右边框元素*/
+	margin-top: 		5%;
+}
+
+
+#select{ /*下拉框*/
+	padding:		10px 7px;
+	width: 		50px;
+	border:		1px solid #c0c0c0;
+	height:		28px;
+	font:			12px arial;
+	margin:  		10px auto;
+	border-radius:	8px;
+	outline: 		none;
+}
+
+
+.text{  /*字段输入框*/
+	padding:		10px 7px;
+	width: 		200px;
+	border:		1px solid #c0c0c0;
+	height:		8px;
+	font:			12px arial;
+	margin:  		10px auto;
+	border-radius:	8px;
+	outline: 		none;
+}
+
+
+#lookup{  /*查询按钮*/
+	cursor: 		pointer;
+	width: 		80px;
+	height: 		30px;
+	font:			12px arial;
+	color:			white;
+	border:		1px solid #c0c0c0;
+	border-radius: 	8px;
+	background-color: 	#38f;
+	margin:		8px auto;
+	outline:		none;
+}
+
+.text #lookup #select{
+	display: 		inline-block;
+}
+
+
+
+#results{  /*查询结果框*/
+	height: 		80%;
+	text-align: 		center;
+}
+
+input::-webkit-input-placeholder{text-align: center;}
