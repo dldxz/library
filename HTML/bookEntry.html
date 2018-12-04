@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>录入图书信息</title>
+	<link rel="stylesheet" type="text/css" href="./css/admin.css">
+</head>
+<body>
+	<div id="sidebar">
+		<p id="username">Admin</p>
+		<div id="functionlist">
+			<li>
+				<a href="bookEntry.html" id="bookEntry" title="录入图书信息">录入图书信息</a>
+			</li>
+
+			<li>
+				<a href="libraryCard.html" id="libraryCard" title="办理借书证">办理借书证</a>
+			</li>
+
+			<li>
+
+			</li>
+
+		</div>
+
+	</div>
+
+
+	<div id="msgbox">
+		<form action="bookEntry.php" method="POST">
+			<p>图书录入</p>
+			<div id="bookInfo">
+				书号: <input type="text" name="isbn" class="text" placeholder="书号"><br>
+				书名: <input type="text" name="book" class="text" placeholder="书名"><br>
+				作者: <input type="text" name="author" class="text" placeholder="作者"><br>
+				出版社: <input type="text" name="press" class="text" placeholder="出版社"><br>
+				类别: <input type="text" name="type" class="text" placeholder="类别"><br>
+			</div>
+
+			<input type="submit", id=submit>
+
+		</form>
+
+	</div>
+
+	
+</body>
+</html>

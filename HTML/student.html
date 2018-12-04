@@ -3,15 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>学生用户界面</title>
-	<link rel="stylesheet" type="text/css" href="student.css">
+	<link rel="stylesheet" type="text/css" href="./css/student.css">
 </head>
 <body>
 	<div id="sidebar">
 		<p id="username">李琛</p>
 		<div>
 			<li>
-				<em>查询个人借阅历史</em>	
+				<em><input type="button" id="lookupHistory" value="查询个人借阅历史"></em>	
 			</li>
+
 		</div>
 
 	</div>
@@ -20,11 +21,11 @@
 		<div id="contents">
 			选择查询类别:
 			<select name="type" id="select">
-				<option value="书号">书号</option>
-				<option value="书名">书名</option>
-				<option value="作者">作者</option>
-				<option value="出版社">出版社</option>
-				<option value="类别">类别</option>
+				<option value="isbn">书号</option>
+				<option value="book">书名</option>
+				<option value="author">作者</option>
+				<option value="press">出版社</option>
+				<option value="type">类别</option>
 
 			</select>
 
