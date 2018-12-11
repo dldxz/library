@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>录入图书信息</title>
+	<title>图书业务办理</title>
 	<link rel="stylesheet" type="text/css" href="./css/admin.css">
 </head>
 <body>
@@ -27,18 +27,24 @@
 
 
 	<div id="msgbox">
-		<form action="bookEntry.php" method="POST">
-			<p>图书录入</p>
+		<form action="businessProcess.php" method="POST">
+			<p>业务办理</p>
 			<div id="contents">
+				选择业务类型:
+				<select name="type" id="select">
+					<option value="lendbook">借书</option>
+					<option value="renewbook">续借</option>
+					<option value="returnbook">还书</option>
+
+				</select><br>
+				
+				姓名: <input type="text" name="username" class="text" placeholder="姓名"><br>
+				学号/工号: <input type="text" name="userId" class="text" placeholder="学号/工号"><br>
 				书号: <input type="text" name="isbn" class="text" placeholder="书号"><br>
-				书名: <input type="text" name="book" class="text" placeholder="书名"><br>
-				作者: <input type="text" name="author" class="text" placeholder="作者"><br>
-				出版社: <input type="text" name="press" class="text" placeholder="出版社"><br>
-				类别: <input type="text" name="type" class="text" placeholder="类别"><br>
+				</p>
 			</div>
 
 			<input type="submit", id=submit>
-
 		</form>
 
 	</div>

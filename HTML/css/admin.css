@@ -71,9 +71,21 @@ a{  /*链接样式*/
 }
 
 
-div#bookInfo{ /*图书录入*/
+div#contents{ /*目录项*/
 	text-align: right;
 	margin-right: 34%;
+}
+
+select{ /*下拉框*/
+	padding:		10px 7px;
+	width: 		215px;
+	border:		1px solid #c0c0c0;
+	height:		30px;
+	font:			12px arial;
+	border-radius:	8px;
+	outline: 		none;
+	background-color: 	white;
+	text-align-last: 	center;
 }
 
 
@@ -85,3 +97,4 @@ form{  /*查询结果框*/
 input::-webkit-input-placeholder{text-align: center}
 a:link { text-decoration: none}
 a:hover {text-decoration: underline; color: green}
+/*a:visited {color: #38f} /*设置全局被点击后的链接颜色*/
