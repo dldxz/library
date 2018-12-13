@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>管理员界面</title>
-	<link rel="stylesheet" type="text/css" href="css\admin.css">
+	<title>借书证办理</title>
+	<link rel="stylesheet" type="text/css" href="./css/admin.css">
 </head>
 <body>
 	<div id="sidebar">
@@ -25,9 +25,22 @@
 
 	</div>
 
-	<div id="msbox">
+
+	<div id="msgbox">
+		<form action="libraryCard.php" method="POST">
+			<p>借书证办理</p>
+			<div id="contents">
+				姓名: <input type="text" name="username" class="text" placeholder="姓名"><br>
+				学号/工号: <input type="text" name="userId" class="text" placeholder="学号/工号"><br>
+				证件号: <input type="text" name="licenseId" class="text" placeholder="证件号"><br>
+			</div>
+
+			<input type="submit", id=submit>
+
+		</form>
 
 	</div>
+
 	
 </body>
 </html>
