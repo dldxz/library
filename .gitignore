@@ -3,3 +3,5 @@ mysql_info.php
 .DS_Store
 composer.json
 composer.lock
+data.py
+data.sql

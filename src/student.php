@@ -6,15 +6,27 @@ require 'jwt.php';
 $token = $_SERVER['HTTP_AUTHORIZATION'];
 $user_info = check_token($token);
 if($user_info == "Check Faild!!!"){
-	http_response_code(403)
-}
-else{
-	$sql = "SELECT * FROM user WHERE username=('$username') AND password=('$passwd') LIMIT 0,1";
-	$result = mysqli_query($con,$sql);
-	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-
-	$row['token'] = $token;
+	$row['status'] = '403';
+	$row['msg'] = 'token error';
 	$json_data = json_encode($row);
 	echo "$json_data";
+}
+else{
+	@error_reporting(0);
+	@$con = mysqli_connect($host,$dbuser,$dbpass,$dbname);
+	if (!$con) {
+	    echo "Failed to connect to MySQL: " . mysqli_error();
+	}
+	if(isset($_POST['select']) && isset($_POST['keyword'])) {
+		se_type = dowith_sql($_POST['select']);
+		keyword = dowith_sql($_POST['keyword']);
+		$sql = "SELECT * FROM book WHERE $se_type=('$keyword')";
+		$result = mysqli_query($con,$sql);
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		$row['status'] = '200';
+		$row['msg'] = 'book found';
+		$json_data = json_encode($row);
+		echo "$json_data";
+	}
 }
  ?>
