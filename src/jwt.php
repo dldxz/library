@@ -1,4 +1,5 @@
 <?php
+@error_reporting(0);
 include 'mysql_info.php';
 function encodes(array $payload, string $key, string $alg)
 {
