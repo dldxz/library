@@ -1,0 +1,41 @@
+body {
+  background: url(../img/background.jpg) no-repeat;
+  background-size: cover;
+  /*基于容器大小伸缩*/
+  /*背景图垂直、水平均居中*/
+}
+#interface {
+  /*主内容区*/
+  text-align: center;
+  margin: 150px auto;
+  width: 600px;
+}
+#interface input {
+  padding: 7px;
+  width: 300px;
+  border: 1px solid #c0c0c0;
+  font-size: 17px;
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 15px;
+  text-align: center;
+}
+#interface h1 {
+  color: white;
+  letter-spacing: 1.1px;
+  font-size: 35px;
+  margin-bottom: 40px;
+}
+#login {
+  cursor: pointer;
+  color: white;
+  border-radius: 8px;
+  background-color: #999;
+  margin: 8px auto;
+  outline: none;
+  border: none;
+  width: 100px;
+}
+#login:hover {
+  background-color: skyblue;
+}

@@ -5,3 +5,4 @@ composer.json
 composer.lock
 data.py
 data.sql
+/node_modules/

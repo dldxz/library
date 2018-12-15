@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="renderer" content="webkit"/>
+<meta name="force-rendering" content="webkit"/>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1">
+<title>图书馆 | 学生</title>
+
+<!-- Set render engine for 360 browser -->
+<meta name="renderer" content="webkit">
+
+<link rel="icon" type="image/png" href="img/library.ico">
+
+<!-- No Baidu Siteapp-->
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+<link rel="stylesheet" href="vendor/bootstrap.min.css">
+<link rel="stylesheet" href="css/nav.css">
+<script src="vendor/jquery.min.js"></script>
+<script src="vendor/bootstrap.min.js"></script>
+<script src="vendor/handlebars.min.js"></script>
+<script src="vendor/layer/layer.js"></script>
+<script src="vendor/vue.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/util.js"></script>
+<script src="js/nav.js"></script>
+
+</head>
+<body>
+	<nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">图书馆管理系统</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul v-if="isStu" class="navbar-nav mr-auto">
+      <li v-for="item in stuNav" class="nav-item active">
+        <a class="nav-link" :href="item.link">{{item.name}}</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      读书是在别人思想的帮助下，建立起自己的思想。——鲁巴金
+    </span>
+  </div>
+</nav>
+</body>
+</html>

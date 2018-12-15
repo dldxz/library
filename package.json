@@ -1,0 +1,25 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "src/    后端代码  \r     *.php       php文件\r HTML/   前端代码  \r     /images     图片资源\r     /css        css样式\r     *.html      html文件",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dldxz/library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dldxz/library/issues"
+  },
+  "homepage": "https://github.com/dldxz/library#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-file-include": "^2.0.1",
+    "gulp-less": "^4.0.1"
+  }
+}

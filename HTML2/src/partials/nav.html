@@ -1,0 +1,16 @@
+<nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">图书馆管理系统</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul v-if="isStu" class="navbar-nav mr-auto">
+      <li v-for="item in stuNav" class="nav-item active">
+        <a class="nav-link" :href="item.link">{{item.name}}</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      读书是在别人思想的帮助下，建立起自己的思想。——鲁巴金
+    </span>
+  </div>
+</nav>
