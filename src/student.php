@@ -1,4 +1,5 @@
 <?php
+@error_reporting(0);
 include 'sqli.php';
 include 'mysql_info.php';
 require 'jwt.php';
@@ -12,7 +13,6 @@ if($user_info == "Check Faild!!!"){
 	echo "$json_data";
 }
 else{
-	@error_reporting(0);
 	@$con = mysqli_connect($host,$dbuser,$dbpass,$dbname);
 	if (!$con) {
 	    echo "Failed to connect to MySQL: " . mysqli_error();

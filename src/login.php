@@ -1,9 +1,9 @@
 <?php
+@error_reporting(0);
 include 'sqli.php';
 include 'mysql_info.php';
 require 'jwt.php';
 
-@error_reporting(0);
 @$con = mysqli_connect($host,$dbuser,$dbpass,$dbname);
 if (!$con) {
     echo "Failed to connect to MySQL: " . mysqli_error();
