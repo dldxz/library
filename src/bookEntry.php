@@ -5,7 +5,7 @@ require 'jwt.php';
 
 $token = $_SERVER['HTTP_AUTHORIZATION'];
 $user_info = check_token($token);
-if($user_info == "Check Faild!!!"){
+if($user_info == "Check Faild!!!") {
 	$row['status'] = '403';
 	$row['msg'] = 'token error';
 	$json_data = json_encode($row);
