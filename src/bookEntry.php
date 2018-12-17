@@ -25,7 +25,7 @@ else{
 		$is_rare = $_POST['is_rare'];
 		$book_type = $_POST['book_type'];
 
-		$sql = "INSERT INTO book(ISBN,bname,author,price,publish_house,is_rare,book_type) VALUES ($isbn,$keyword,$author,$price,$publish_house,$is_rare,$book_type)";
+		$sql = "INSERT INTO book(ISBN,bname,author,price,publish_house,is_rare,book_type,is_Borrowed) VALUES ($isbn,$keyword,$author,$price,$publish_house,$is_rare,$book_type,False)";
 		$result = mysqli_query($con,$sql);
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 		$row['status'] = '200';

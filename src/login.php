@@ -12,7 +12,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 	$passwd = $_POST['password'];
 	$sql = "SELECT stu_id,username,types FROM user WHERE username=('$username') AND password=('$passwd') LIMIT 0,1";
 	$result = mysqli_query($con,$sql);
-	if(is_bool($result)) {
+	if(mysqli_num_rows($result) == 0) {
 		$row['status'] = '404';
 		$row['msg'] = 'wrong username or password';
 		$json_data = json_encode($row);

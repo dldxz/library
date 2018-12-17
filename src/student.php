@@ -29,8 +29,9 @@ else{
 		echo "$json_data";
 	}
 	else {
-		$row['status'] = '401';
-		$row['msg'] = 'please select the type and input contents';
+		$sql = "SELECT * FROM book";
+		$row['status'] = '200';
+		$row['msg'] = 'book found';
 		$json_data = json_encode($row);
 		echo "$json_data";
 	}
