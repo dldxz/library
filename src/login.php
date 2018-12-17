@@ -10,11 +10,7 @@ if (!$con) {
 if(isset($_POST['username']) && isset($_POST['password'])) {
 	$username = $_POST['username'];
 	$passwd = $_POST['password'];
-	$payload = array(
-	    "username" => "$username",
-	    "password" => "$passwd",
-	);
-	$sql = "SELECT stu_id,username FROM user WHERE username=('$username') AND password=('$passwd') LIMIT 0,1";
+	$sql = "SELECT stu_id,username,type FROM user WHERE username=('$username') AND password=('$passwd') LIMIT 0,1";
 	$result = mysqli_query($con,$sql);
 	if(mysqli_num_rows($result)<1) {
 		$row['status'] = '404';
@@ -24,6 +20,9 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 	}
 	else {
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		$payload = array(
+		    "username" => "$username",
+		);
 		$token = encodes($payload,$key,'SHA256');
 		$row['token'] = $token;
 		$row['status'] = '200';
