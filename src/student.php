@@ -1,6 +1,5 @@
 <?php
 @error_reporting(0);
-include 'sqli.php';
 include 'mysql_info.php';
 require 'jwt.php';
 
@@ -18,8 +17,8 @@ else{
 	    echo "Failed to connect to MySQL: " . mysqli_error();
 	}
 	if(isset($_POST['select']) && isset($_POST['keyword'])) {
-		$se_type = dowith_sql($_POST['select']);
-		$keyword = dowith_sql($_POST['keyword']);
+		$se_type = $_POST['select'];
+		$keyword = $_POST['keyword'];
 		$sql = "SELECT * FROM book WHERE $se_type=('$keyword')";
 		$result = mysqli_query($con,$sql);
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);

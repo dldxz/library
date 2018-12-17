@@ -1,6 +1,5 @@
 <?php
 @error_reporting(0);
-include 'sqli.php';
 include 'mysql_info.php';
 require 'jwt.php';
 
@@ -18,13 +17,13 @@ else{
 	    echo "Failed to connect to MySQL: " . mysqli_error();
 	}
 	if(isset($_POST['isbn']) && isset($_POST['bname']) && isset($_POST['author']) && isset($_POST['price']) && isset($_POST['publish_house']) && isset($_POST['is_rare']) && isset($_POST['book_type']) ) {
-		$isbn = dowith_sql($_POST['isbn']);
-		$keyword = dowith_sql($_POST['bname']);
-		$author = dowith_sql($_POST['author']);
-		$price = dowith_sql($_POST['price']);
-		$publish_house = dowith_sql($_POST['publish_house']);
-		$is_rare = dowith_sql($_POST['is_rare']);
-		$book_type = dowith_sql($_POST['book_type']);
+		$isbn = $_POST['isbn'];
+		$keyword = $_POST['bname'];
+		$author = $_POST['author'];
+		$price = $_POST['price'];
+		$publish_house = $_POST['publish_house'];
+		$is_rare = $_POST['is_rare'];
+		$book_type = $_POST['book_type'];
 
 		$sql = "INSERT INTO book(ISBN,bname,author,price,publish_house,is_rare,book_type) VALUES ($isbn,$keyword,$author,$price,$publish_house,$is_rare,$book_type)";
 		$result = mysqli_query($con,$sql);

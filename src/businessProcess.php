@@ -1,6 +1,5 @@
 <?php
 @error_reporting(0);
-include 'sqli.php';
 include 'mysql_info.php';
 require 'jwt.php';
 
@@ -18,10 +17,10 @@ else {
 	    echo "Failed to connect to MySQL: " . mysqli_error();
 	}
 	if(isset($_POST['select']) && isset($_POST['username']) && isset($_POST['userId']) && isset($_POST['isbn'])) {
-		$choose = dowith_sql($_POST['select']);
-		$username = dowith_sql($_POST['username']);
-		$userId = dowith_sql($_POST['userId']);
-		$isbn = dowith_sql($_POST['isbn']);
+		$choose = $_POST['select'];
+		$username = $_POST['username'];
+		$userId = $_POST['userId'];
+		$isbn = $_POST['isbn'];
 
 		switch ($choose) {
 			case 'lendbook':

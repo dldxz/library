@@ -1,6 +1,5 @@
 <?php
 @error_reporting(0);
-include 'sqli.php';
 include 'mysql_info.php';
 require 'jwt.php';
 
@@ -9,8 +8,8 @@ if (!$con) {
     echo "Failed to connect to MySQL: " . mysqli_error();
 }
 if(isset($_POST['username']) && isset($_POST['password'])) {
-	$username = dowith_sql($_POST['username']);
-	$passwd = dowith_sql($_POST['password']);
+	$username = $_POST['username'];
+	$passwd = $_POST['password'];
 	$payload = array(
 	    "username" => "$username",
 	    "password" => "$passwd",
@@ -27,6 +26,8 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 		$token = encodes($payload,$key,'SHA256');
 		$row['token'] = $token;
+		$row['status'] = '200';
+		$row['msg'] = 'login success';
 		$json_data = json_encode($row);
 		echo "$json_data";
 	}
