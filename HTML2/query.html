@@ -12,7 +12,7 @@
 <meta name="keywords" content="">
 <meta name="viewport"
       content="width=device-width, initial-scale=1">
-<title>图书馆 | 登录</title>
+<title>图书馆 | 图书查询</title>
 
 <!-- Set render engine for 360 browser -->
 <meta name="renderer" content="webkit">
@@ -31,20 +31,28 @@
 <script src="js/settings.js"></script>
 <script src="js/nav.js"></script>
 
-	<link rel="stylesheet" href="css/login.css">
-	<script src="js/login.js"></script>
 </head>
 <body>
-	<div id="interface">
-		<div id="alerts">
-	<div class="alert alert-primary" role="alert">
-
-	</div>
-</div>
-		<h1>登录图书馆信息管理系统</h1>
-		<input class="text" placeholder="用户名" v-model="username"><br>
-		<input type="password" class="text" placeholder="密码" v-model="password"><br>
-		<button id="login" class="btn" v-on:click="login">登录</button>
-	</div>
+	<nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">图书馆管理系统</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul v-if="isStu" class="navbar-nav mr-auto">
+      <li v-for="item in stuNav" :class="{'nav-item':1, 'active':isCurrent(item.link)}">
+        <a class="nav-link" :href="item.link">{{item.name}}</a>
+      </li>
+    </ul>
+    <ul v-if="isAdmin" class="navbar-nav mr-auto">
+      <li v-for="item in adminNav" :class="{'nav-item':1, 'active':isCurrent(item.link)}">
+        <a class="nav-link" :href="item.link">{{item.name}}</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      {{sentences[Math.floor(Math.random()*sentences.length)]}}
+    </span>
+  </div>
+</nav>
 </body>
 </html>

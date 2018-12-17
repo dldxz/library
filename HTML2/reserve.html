@@ -12,7 +12,7 @@
 <meta name="keywords" content="">
 <meta name="viewport"
       content="width=device-width, initial-scale=1">
-<title>图书馆 | 借书证办理</title>
+<title>图书馆 | 图书预约</title>
 
 <!-- Set render engine for 360 browser -->
 <meta name="renderer" content="webkit">
@@ -26,15 +26,33 @@
 <link rel="stylesheet" href="css/nav.css">
 <script src="vendor/jquery.min.js"></script>
 <script src="vendor/bootstrap.min.js"></script>
-<script src="vendor/handlebars.min.js"></script>
-<script src="vendor/layer/layer.js"></script>
 <script src="vendor/vue.js"></script>
-<script src="js/settings.js"></script>
 <script src="js/util.js"></script>
+<script src="js/settings.js"></script>
 <script src="js/nav.js"></script>
 
 </head>
 <body>
-	
+	<nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">图书馆管理系统</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul v-if="isStu" class="navbar-nav mr-auto">
+      <li v-for="item in stuNav" :class="{'nav-item':1, 'active':isCurrent(item.link)}">
+        <a class="nav-link" :href="item.link">{{item.name}}</a>
+      </li>
+    </ul>
+    <ul v-if="isAdmin" class="navbar-nav mr-auto">
+      <li v-for="item in adminNav" :class="{'nav-item':1, 'active':isCurrent(item.link)}">
+        <a class="nav-link" :href="item.link">{{item.name}}</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      {{sentences[Math.floor(Math.random()*sentences.length)]}}
+    </span>
+  </div>
+</nav>
 </body>
 </html>
