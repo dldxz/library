@@ -15,8 +15,9 @@ function signature(string $input, string $key, string $alg)
 
 function check_token(string $token)
 {
+	global $key;
 	$info = explode('.',$token);
-	$user_info = json_decode(base64_decode($info[1]));
+	$user_info = json_decode(base64_decode($info[1]),true);
 	if(encodes($user_info,$key,'SHA256') == $token)
 	{
 		return $user_info;
