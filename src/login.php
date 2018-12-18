@@ -22,6 +22,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 		$payload = array(
 		    "username" => "$username",
+		    "stu_id" => $row['stu_id'],
 		);
 		$token = encodes($payload,$key,'SHA256');
 		$row['token'] = $token;

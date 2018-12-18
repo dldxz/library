@@ -12,36 +12,26 @@ if(isset($headers['Authorization'])) {
 		$row['msg'] = 'token error';
 		$json_data = json_encode($row);
 		echo "$json_data";
-	}
-	else{
+	} else{
 		@$con = mysqli_connect($host,$dbuser,$dbpass,$dbname);
 		if (!$con) {
 		    echo "Failed to connect to MySQL: " . mysqli_error();
 		}
-		if(isset($_POST['isbn']) && isset($_POST['bname']) && isset($_POST['author']) && isset($_POST['price']) && isset($_POST['publish_house']) && isset($_POST['is_rare']) && isset($_POST['book_type']) ) {
-			$isbn = $_POST['isbn'];
-			$keyword = $_POST['bname'];
-			$author = $_POST['author'];
-			$price = $_POST['price'];
-			$publish_house = $_POST['publish_house'];
-			$is_rare = $_POST['is_rare'];
-			$book_type = $_POST['book_type'];
+		if(isset($_POST['ISBN']) && isset($_POST['username'])) {
 			$date = date("Y-m-d");
-			$uname = $user_info['username'];
-
-			$sql1 = "INSERT INTO inbound(inbound_date,uname,ISBN) VALUES ($date,$uname,$isbn)";
-			$result = mysqli_query($con,$sql1);
-			$sql = "INSERT INTO book(ISBN,bname,author,price,publish_house,is_rare,book_type,is_Borrowed) VALUES ($isbn,$keyword,$author,$price,$publish_house,$is_rare,$book_type,False)";
+			$isbn = $_POST['ISBN'];
+			$stu_id = $user_info['stu_id'];
+			var_dump($stu_id);
+			$sql = "INSERT INTO reserve_record(ISBN,uid,reserve_date) VALUES ($isbn,$stu_id,$date)";
 			$result = mysqli_query($con,$sql);
 			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 			$row['status'] = '200';
-			$row['msg'] = 'book entry success';
+			$row['msg'] = 'book reserve success';
 			$json_data = json_encode($row);
 			echo "$json_data";
-		}
-		else {
+		} else {
 			$row['status'] = '401';
-			$row['msg'] = 'please entry all informations';
+			$row['msg'] = 'please input all informations';
 			$json_data = json_encode($row);
 			echo "$json_data";
 		}
@@ -52,6 +42,4 @@ if(isset($headers['Authorization'])) {
 	$json_data = json_encode($row);
 	echo "$json_data";
 }
-
-
  ?>
