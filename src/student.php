@@ -17,9 +17,9 @@ else{
 	if (!$con) {
 	    echo "Failed to connect to MySQL: " . mysqli_error();
 	}
-	if(isset($_POST['select']) && isset($_POST['keyword'])) {
-		$se_type = $_POST['select'];
-		$keyword = $_POST['keyword'];
+	if(isset($_GET['select']) && isset($_GET['keyword'])) {
+		$se_type = $_GET['select'];
+		$keyword = $_GET['keyword'];
 		$sql = "SELECT * FROM book WHERE $se_type=('$keyword')";
 		$result = mysqli_query($con,$sql);
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -30,8 +30,10 @@ else{
 	}
 	else {
 		$sql = "SELECT * FROM book";
+		$result = mysqli_query($con,$sql);
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 		$row['status'] = '200';
-		$row['msg'] = 'book found';
+		$row['msg'] = 'all book lists';
 		$json_data = json_encode($row);
 		echo "$json_data";
 	}
