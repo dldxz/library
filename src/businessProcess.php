@@ -3,7 +3,8 @@
 include 'mysql_info.php';
 require 'jwt.php';
 
-$token = $_SERVER['HTTP_AUTHORIZATION'];
+$headers = getallheaders();
+$token = $headers['HTTP_AUTHORIZATION'];
 $user_info = check_token($token);
 if($user_info == "Check Faild!!!") {
 	$row['status'] = '403';
