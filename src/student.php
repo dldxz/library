@@ -22,16 +22,24 @@ else{
 		$keyword = $_GET['keyword'];
 		$sql = "SELECT * FROM book WHERE $se_type=('$keyword')";
 		$result = mysqli_query($con,$sql);
-		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-		$row['status'] = '200';
-		$row['msg'] = 'book found';
-		$json_data = json_encode($row);
-		echo "$json_data";
+		if(empty($result) || mysqli_num_rows($result) == 0) {
+			$row['data'] = [];
+			$row['status'] = '404';
+			$row['msg'] = 'book not found';
+			$json_data = json_encode($row);
+			echo "$json_data";
+		} else {
+			$row['data'] = mysqli_fetch_all($result,MYSQLI_ASSOC);
+			$row['status'] = '200';
+			$row['msg'] = 'book found';
+			$json_data = json_encode($row);
+			echo "$json_data";
+		}
 	}
 	else {
 		$sql = "SELECT * FROM book";
 		$result = mysqli_query($con,$sql);
-		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		$row['data'] = mysqli_fetch_all($result,MYSQLI_ASSOC);
 		$row['status'] = '200';
 		$row['msg'] = 'all book lists';
 		$json_data = json_encode($row);
