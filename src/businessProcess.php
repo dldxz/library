@@ -4,7 +4,7 @@ include 'mysql_info.php';
 require 'jwt.php';
 
 $headers = getallheaders();
-if(isset($headers['Authorization'])) {
+if(!empty($headers['Authorization'])) {
 	$token = $headers['Authorization'];
 	$user_info = check_token($token);
 	if($user_info == "Check Faild!!!") {
@@ -18,7 +18,7 @@ if(isset($headers['Authorization'])) {
 		if (!$con) {
 		    echo "Failed to connect to MySQL: " . mysqli_error();
 		}
-		if(isset($_POST['select']) && isset($_POST['username']) && isset($_POST['userId']) && isset($_POST['isbn'])) {
+		if(!empty($_POST['select']) && !empty($_POST['username']) && !empty($_POST['userId']) && !empty($_POST['isbn'])) {
 			$choose = $_POST['select'];
 			$username = $_POST['username'];
 			$userId = $_POST['userId'];
@@ -27,7 +27,7 @@ if(isset($headers['Authorization'])) {
 			switch ($choose) {
 				case 'lendbook':
 					$date = date("Y-m-d");
-					$sql = "INSERT INTO borrow_record(borrowed,ISBN,uname) VALUES ($date,$isbn,$username)";
+					$sql = "INSERT INTO borrow_record(borrowed,ISBN,uname) VALUES ('$date','$isbn','$username')";
 					$result = mysqli_query($con,$sql);
 					$row['status'] = '200';
 					$row['msg'] = 'Successful borrowing';
@@ -36,8 +36,8 @@ if(isset($headers['Authorization'])) {
 					break;
 				case 'renewbook':
 					$date = date("Y-m-d");
-					$sql1 = "UPDATE borrow_record SET returned=$date WHERE uname=$username AND ISBN=$isbn";
-					$sql2 = "INSERT INTO borrow_record(borrowed,ISBN,uname) VALUES ($date,$isbn,$username)";
+					$sql1 = "UPDATE borrow_record SET returned='$date' WHERE uname='$username' AND ISBN='$isbn'";
+					$sql2 = "INSERT INTO borrow_record(borrowed,ISBN,uname) VALUES ('$date','$isbn','$username')";
 					$result = mysqli_query($con,$sql1);
 					$result = mysqli_query($con,$sql2);
 					$row['status'] = '200';
@@ -46,7 +46,7 @@ if(isset($headers['Authorization'])) {
 					echo "$json_data";
 				case 'returnbook':
 					$date = date("Y-m-d");
-					$sql = "UPDATE borrow_record SET returned=$date WHERE uname=$username AND ISBN=$isbn";
+					$sql = "UPDATE borrow_record SET returned='$date' WHERE uname='$username' AND ISBN='$isbn'";
 					$result = mysqli_query($con,$sql);
 					$row['status'] = '200';
 					$row['msg'] = 'Successful returned';

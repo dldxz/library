@@ -17,12 +17,11 @@ if(isset($headers['Authorization'])) {
 		if (!$con) {
 		    echo "Failed to connect to MySQL: " . mysqli_error();
 		}
-		if(isset($_POST['ISBN']) && isset($_POST['username'])) {
+		if(!empty($_POST['ISBN']) && !empty($_POST['username'])) {
 			$date = date("Y-m-d");
 			$isbn = $_POST['ISBN'];
 			$stu_id = $user_info['stu_id'];
-			var_dump($stu_id);
-			$sql = "INSERT INTO reserve_record(ISBN,uid,reserve_date) VALUES ($isbn,$stu_id,$date)";
+			$sql = "INSERT INTO reserve_record(ISBN,uid,reserve_date) VALUES ('$isbn','$stu_id','$date')";
 			$result = mysqli_query($con,$sql);
 			$row['status'] = '200';
 			$row['msg'] = 'book reserve success';

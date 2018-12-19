@@ -4,7 +4,7 @@ include 'mysql_info.php';
 require 'jwt.php';
 
 $headers = getallheaders();
-if(isset($headers['Authorization'])) {
+if(!empty($headers['Authorization'])) {
 	$token = $headers['Authorization'];
 	$user_info = check_token($token);
 	if($user_info == "Check Faild!!!") {
@@ -18,7 +18,7 @@ if(isset($headers['Authorization'])) {
 		if (!$con) {
 		    echo "Failed to connect to MySQL: " . mysqli_error();
 		}
-		if(isset($_POST['isbn']) && isset($_POST['bname']) && isset($_POST['author']) && isset($_POST['price']) && isset($_POST['publish_house']) && isset($_POST['is_rare']) && isset($_POST['book_type']) ) {
+		if(!empty($_POST['isbn']) && !empty($_POST['bname']) && !empty($_POST['author']) && !empty($_POST['price']) && !empty($_POST['publish_house']) && !empty($_POST['is_rare']) && !empty($_POST['book_type']) ) {
 			$isbn = $_POST['isbn'];
 			$keyword = $_POST['bname'];
 			$author = $_POST['author'];
@@ -29,9 +29,9 @@ if(isset($headers['Authorization'])) {
 			$date = date("Y-m-d");
 			$uname = $user_info['username'];
 
-			$sql1 = "INSERT INTO inbound(inbound_date,uname,ISBN) VALUES ($date,$uname,$isbn)";
+			$sql1 = "INSERT INTO inbound_record(inbound_date,uname,ISBN) VALUES ('$date','$uname','$isbn')";
 			$result = mysqli_query($con,$sql1);
-			$sql = "INSERT INTO book(ISBN,bname,author,price,publish_house,is_rare,book_type,is_Borrowed) VALUES ($isbn,$keyword,$author,$price,$publish_house,$is_rare,$book_type,False)";
+			$sql = "INSERT INTO book(ISBN,bname,author,price,publish_house,is_rare,book_type,is_Borrowed) VALUES ('$isbn','$keyword','$author','$price','$publish_house',$is_rare,'$book_type',False)";
 			$result = mysqli_query($con,$sql);
 			$row['status'] = '200';
 			$row['msg'] = 'book entry success';
