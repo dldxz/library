@@ -18,10 +18,9 @@ if(!empty($headers['Authorization'])) {
 		if (!$con) {
 		    echo "Failed to connect to MySQL: " . mysqli_error();
 		}
-		if(!empty($_POST['select']) && !empty($_POST['username']) && !empty($_POST['userId']) && !empty($_POST['isbn'])) {
+		if(!empty($_POST['select']) && !empty($_POST['username'])&& !empty($_POST['isbn'])) {
 			$choose = $_POST['select'];
 			$username = $_POST['username'];
-			$userId = $_POST['userId'];
 			$isbn = $_POST['isbn'];
 
 			switch ($choose) {

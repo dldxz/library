@@ -23,6 +23,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 		$payload = array(
 		    "username" => "$username",
 		    "stu_id" => $row['stu_id'],
+		    "types" => $row['types'],
 		);
 		$token = encodes($payload,$key,'SHA256');
 		$row['token'] = $token;
