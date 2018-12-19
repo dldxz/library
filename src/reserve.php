@@ -24,7 +24,6 @@ if(isset($headers['Authorization'])) {
 			var_dump($stu_id);
 			$sql = "INSERT INTO reserve_record(ISBN,uid,reserve_date) VALUES ($isbn,$stu_id,$date)";
 			$result = mysqli_query($con,$sql);
-			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 			$row['status'] = '200';
 			$row['msg'] = 'book reserve success';
 			$json_data = json_encode($row);

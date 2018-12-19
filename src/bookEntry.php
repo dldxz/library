@@ -33,7 +33,6 @@ if(isset($headers['Authorization'])) {
 			$result = mysqli_query($con,$sql1);
 			$sql = "INSERT INTO book(ISBN,bname,author,price,publish_house,is_rare,book_type,is_Borrowed) VALUES ($isbn,$keyword,$author,$price,$publish_house,$is_rare,$book_type,False)";
 			$result = mysqli_query($con,$sql);
-			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 			$row['status'] = '200';
 			$row['msg'] = 'book entry success';
 			$json_data = json_encode($row);

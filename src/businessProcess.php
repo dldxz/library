@@ -29,7 +29,6 @@ if(isset($headers['Authorization'])) {
 					$date = date("Y-m-d");
 					$sql = "INSERT INTO borrow_record(borrowed,ISBN,uname) VALUES ($date,$isbn,$username)";
 					$result = mysqli_query($con,$sql);
-					$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 					$row['status'] = '200';
 					$row['msg'] = 'Successful borrowing';
 					$json_data = json_encode($row);
@@ -41,7 +40,6 @@ if(isset($headers['Authorization'])) {
 					$sql2 = "INSERT INTO borrow_record(borrowed,ISBN,uname) VALUES ($date,$isbn,$username)";
 					$result = mysqli_query($con,$sql1);
 					$result = mysqli_query($con,$sql2);
-					$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 					$row['status'] = '200';
 					$row['msg'] = 'Renewal success';
 					$json_data = json_encode($row);
@@ -50,7 +48,6 @@ if(isset($headers['Authorization'])) {
 					$date = date("Y-m-d");
 					$sql = "UPDATE borrow_record SET returned=$date WHERE uname=$username AND ISBN=$isbn";
 					$result = mysqli_query($con,$sql);
-					$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 					$row['status'] = '200';
 					$row['msg'] = 'Successful returned';
 					$json_data = json_encode($row);
