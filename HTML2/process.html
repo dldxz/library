@@ -31,6 +31,7 @@
 <script src="js/settings.js"></script>
 <script src="js/nav.js"></script>
 
+	<script src="js/process.js"></script>
 </head>
 <body>
 	<nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -54,5 +55,55 @@
     </span>
   </div>
 </nav>
-</body>
+	<div class="container" id="app">
+		<br>
+		<div id="alerts">
+	<div class="alert alert-primary" role="alert">
+
+	</div>
+</div>
+		<div v-if="isAdmin">
+			<div class="row" style="margin-top: 10px">
+
+				<div class="form-group col-6">
+					<label for="selectt">服务</label>
+					<select class="form-control" id="selectt" v-model="select">
+						<option value="lendbook">借书</option>
+						<option value="returnbook">还书</option>
+					</select>
+				</div>
+				<div class="form-group col-6">
+					<label for="userId">学号</label>
+					<input class="form-control" id="userId" v-model="userId">
+				</div>
+				<div class="form-group col-6">
+					<label for="isbn">ISBN</label>
+					<input class="form-control" id="isbn" v-model="isbn">
+				</div>
+			</div><br><br>
+			<button type="button" class="btn btn-outline-dark btn-lg" style="display: block; width: 100%; max-width: 600px; margin: auto" v-on:click="addProcess">提交</button><br><br>
+		</div>
+		<div id="booklist">
+			<table class="table table-bordered" v-if="list.length">
+			  <thead>
+			    <tr>
+			      <th scope="col">ISBN</th>
+			      <th scope="col">书名</th>
+			      <th scope="col">作者</th>
+			      <th scope="col">价格</th>
+			      <th scope="col">类别</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr v-for="item in list">
+			    	<td>{{item.ISBN}}</td>
+			    	<td>{{item.bname}}</td>
+			    	<td>{{item.author}}</td>
+			    	<td>{{item.price}}</td>
+			    	<td>{{item.book_type}}</td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+	</div>
 </html>

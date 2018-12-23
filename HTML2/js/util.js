@@ -14,5 +14,5 @@ function reload() {
 
 function cusAlert(type, content) {
 	$('#alerts div').attr('class', 'alert alert-' + type)
-		.html(content).css('opacity', 1);
+		.html(content).css('display', 'block');
 };

@@ -4,9 +4,32 @@
 	@@include("partials/head.html", {
 		"title": "录入图书"
 	})
+	<script src="js/newbook.js"></script>
 </head>
 <body>
 	@@include("partials/nav.html")
-	
+	<div class="container" id="app">
+		<br>
+		@@include("partials/alerts.html")
+		<div class="row" style="margin-top: 10px">
+			<div class="form-group col-6" v-for="(v, k) in inputs">
+				<label :for="k">{{v.label}}</label>
+				<input class="form-control" :id="k" v-model="v.value" v-if="k != 'is_rare' && k != 'book_type'">
+				<select class="form-control" id="input-select" v-model="v.value" v-if="k == 'is_rare'">
+					<option value="0">否</option>
+					<option value="1">是</option>
+				</select>
+				<select class="form-control" id="input-select" v-model="v.value" v-if="k == 'book_type'">
+					<option value="Dictionary">Dictionary</option>
+					<option value="Biography">Biography</option>
+					<option value="Diary">Diary</option>
+					<option value="Art">Art</option>
+					<option value="Autobiography">Autobiography</option>
+					<option value="Cookbook">Cookbook</option>
+				</select>
+			</div>
+		</div><br><br>
+		<button type="button" class="btn btn-outline-dark btn-lg" style="display: block; width: 100%; max-width: 600px; margin: auto" v-on:click="addNew">录入图书</button><br><br>
+	</div>
 </body>
 </html>
