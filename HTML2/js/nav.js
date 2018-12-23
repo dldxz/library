@@ -1,4 +1,4 @@
-isAdmin = 1
+isAdmin = localStorage.type == 'admin'
 var nav
 $(document).ready(function() {
     if (location.href.search('login.html') != -1) {

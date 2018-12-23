@@ -31,6 +31,7 @@
 <script src="js/settings.js"></script>
 <script src="js/nav.js"></script>
 
+	<script src="js/reserve.js"></script>
 </head>
 <body>
 	<nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -54,5 +55,45 @@
     </span>
   </div>
 </nav>
+	<div class="container" id="app">
+		<br>
+		<div id="alerts">
+	<div class="alert alert-primary" role="alert">
+
+	</div>
+</div>
+		<div v-if="!isAdmin">
+			<div class="row" style="margin-top: 10px">
+				<div class="form-group col-6">
+					<label for="ISBN">ISBN</label>
+					<input class="form-control" id="ISBN" v-model="ISBN">
+				</div>
+				<div class="form-group col-6">
+					<label for="username">用户名</label>
+					<input class="form-control" id="username" v-model="username">
+				</div>
+			</div><br><br>
+			<button type="button" class="btn btn-outline-dark btn-lg" style="display: block; width: 100%; max-width: 600px; margin: auto" v-on:click="addReserve">发送预约请求</button><br><br>
+		</div>
+
+		<div id="reservelist">
+			<table class="table table-bordered" v-if="list.length">
+			  <thead>
+			    <tr>
+			      <th scope="col">ISBN</th>
+			      <th scope="col">时间</th>
+			      <th scope="col">预约人</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr v-for="item in list">
+			    	<td>{{item.ISBN}}</td>
+			    	<td>{{item.reserve_date}}</td>
+			    	<td>{{item.uid}}</td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+	</div>
 </body>
 </html>
