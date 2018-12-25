@@ -22,8 +22,8 @@
 					</select>
 				</div>
 				<div class="form-group col-6">
-					<label for="userId">学号</label>
-					<input class="form-control" id="userId" v-model="userId">
+					<label for="userId">用户名</label>
+					<input class="form-control" id="username" v-model="username">
 				</div>
 				<div class="form-group col-6">
 					<label for="isbn">ISBN</label>
@@ -37,19 +37,17 @@
 			  <thead>
 			    <tr>
 			      <th scope="col">ISBN</th>
-			      <th scope="col">书名</th>
-			      <th scope="col">作者</th>
-			      <th scope="col">价格</th>
-			      <th scope="col">类别</th>
+			      <th scope="col">借阅时间</th>
+			      <th scope="col">归还时间</th>
+			      <th scope="col">借阅用户</th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			    <tr v-for="item in list">
 			    	<td>{{item.ISBN}}</td>
-			    	<td>{{item.bname}}</td>
-			    	<td>{{item.author}}</td>
-			    	<td>{{item.price}}</td>
-			    	<td>{{item.book_type}}</td>
+			    	<td>{{item.borrowed}}</td>
+			    	<td>{{item.returned}}</td>
+			    	<td>{{item.uname}}</td>
 			    </tr>
 			  </tbody>
 			</table>

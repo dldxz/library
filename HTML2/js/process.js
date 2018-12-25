@@ -6,6 +6,7 @@ function ajaxAddProcess(data) {
 		success: function(res) {
 			if (res.status == 200) {
 				cusAlert('info', 'Done')
+				reload()
 			}  else {
 				cusAlert('danger', 'Error: ' + res.msg)
 			}
@@ -39,7 +40,7 @@ $(document).ready(function() {
 		el: '#app',
 		data: {
 			select: '',
-			userId: '',
+			username: '',
 			isbn: '',
 			list: [],
 			isAdmin: isAdmin
