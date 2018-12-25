@@ -51,12 +51,6 @@ if(!empty($headers['Authorization'])) {
 					$row['msg'] = 'Successful returned';
 					$json_data = json_encode($row);
 					echo "$json_data";
-				default:
-					$row['status'] = '200';
-					$row['msg'] = 'nodata';
-					$json_data = json_encode($row);
-					echo "$json_data";
-					break;
 			}
 		}
 		else {
